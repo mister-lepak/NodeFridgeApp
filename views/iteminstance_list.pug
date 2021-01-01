@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+
+  if error
+    p Error in downloading data.
+  else
+    ul
+      each item in iteminstances
+        li
+          a(href=item.url) #{item.name} (stock: #{item.stock})

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+
+  form(method='POST' action='')
+    p Are you sure you want to delete #[strong #{section.name}] ?
+    button(class='ui negative button') Yes, I am sure. Please delete #{section.name} now!

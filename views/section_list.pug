@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+
+  if error
+    p Error downloading data.
+  else
+    ul
+      each section in sections
+        li
+          a(href=section.url) #{section.name}

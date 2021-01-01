@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  if error
+    h1 Error downloading data.
+  else
+    h1 #{section.name}
+
+  hr
+  p
+    a(href=section.url+"/update") Update Section
+  p
+    a(href=section.url+"/delete") Delete Section

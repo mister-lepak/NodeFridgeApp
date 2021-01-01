@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+
+  if error
+    p Error downloading data.
+  else
+    ul
+      each category in categories
+        li
+          a(href=category.url) #{category.name}

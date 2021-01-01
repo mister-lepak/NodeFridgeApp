@@ -1,0 +1,22 @@
+extends layout
+
+block content
+
+  if error
+    p Error downloading data.
+  else
+    h1 #{iteminstance.name}
+
+    p #[strong Stock:] #{iteminstance.stock}
+    p #[strong Expiry Date:] #{iteminstance.expiryDateGet}
+    p #[strong Section:]
+      a(href=iteminstance.section.url)  #{iteminstance.section.name}
+    p #[strong Category:]
+      a(href=iteminstance.category.url)  #{iteminstance.category.name}
+    p #[strong Price:] $#{iteminstance.price}
+
+    hr
+    p
+      a(href=iteminstance.url+'/update') Update Item
+    p
+      a(href=iteminstance.url+'/delete') Delete Item

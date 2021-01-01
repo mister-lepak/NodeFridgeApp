@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  if error
+    h1 Error rendering form
+  else
+    h1= title
+
+    div(class='ui grid')
+      div(class='twelve wide column')
+        form(method='POST' action='')
+          div(class='ui form')
+            div(class='field')
+              label(for="categoryName") Category Name
+              input(name='categoryName' type='text' value=!(undefined==category) ? category.name : '')
+            if errorMessage
+              p #{errorMessage.msg}
+            else
+
+            div(class='field')
+              button(class='ui button') Submit

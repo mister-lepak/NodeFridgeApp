@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  if error
+    h1 Error downloading data.
+  else
+    h1 #{category.name}
+
+  hr
+  p
+    a(href=category.url+"/update") Update Category
+  p
+    a(href=category.url+"/delete") Delete Category

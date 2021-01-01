@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em #{title}], a simple fridge item tracking App
+
+  if error
+    p Error getting dynamic content.
+  else
+    p The app has the following record counts:
+
+    ul
+      li #[strong Items:] !{data.item_count}
+      //- li
+      //-   span.text-success #{data.item_good_count}
+      //- li
+      //-   span.text-warning #{data.item_warning_count}
+      //- li
+      //-   span.text-danger #{data.item_danger_count}

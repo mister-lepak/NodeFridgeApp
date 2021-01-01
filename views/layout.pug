@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css", integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==", crossorigin="anonymous")
+  body
+    div(class='ui grid')
+      div(class='row')
+        div(class='sixteen wide center aligned column')
+          block title
+            h1 Fridge App
+      div(class='row')
+        div(class='three wide column')
+          block sidebar
+            div(class='ui secondary vertical menu')
+              div(class='item')
+                div(class='header')
+                  p
+                    a(href='/') Home
+              div(class='item')
+                div(class='header')
+                  p Item
+                div(class='menu')
+                  div(class='item')
+                    p
+                      a(href='/items/') All items
+                    p
+                      a(href='/item/create') Add new item
+              div(class='item')
+                div(class='header')
+                  p Category
+                div(class='menu')
+                  div(class='item')
+                    p
+                      a(href='/categories') All Categories
+                    p
+                      a(href='/category/create') Create Category
+              div(class='item')
+                div(class='header')
+                  p Section
+                div(class='menu')
+                  div(class='item')
+                    p
+                      a(href='/sections') All Sections
+                    p
+                      a(href='/section/create') Create Section
+
+        div(class='thirteen wide column')
+          block content
+
+      div(class='row')
+        div(class='sixteen wide center aligned column')
+          block footer
+            a(class='item' href='https://github.com/mrlepak/')
+              i(class='big github icon')
+

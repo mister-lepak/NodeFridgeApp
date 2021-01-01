@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  h1= title
+
+  div(class='ui grid')
+    div(class='twelve wide column')
+      form(method='POST' action='')
+        div(class='ui form')
+          div(class='field')
+            label Item Name
+            input(type="text", name="itemName" value=!(iteminstance == undefined)? iteminstance.name : '')
+            if errors
+              p #{errors.errors[0].msg}
+          div(class='field')
+            label Stock
+            input(type='text', name='itemStock' value=!(iteminstance == undefined)? iteminstance.stock : '')
+            if errors
+              p #{errors.errors[1].msg}
+          div(class='field')
+            label Expiry Date
+            input(type='date', name='itemExpiryDate' value=!(iteminstance == undefined) ? iteminstance.expiryDateGet : '')
+            if errors
+              p #{errors.errors[3].msg}
+          div(class='field')
+            label Category
+            select(class='ui fluid dropdown', type='select', placeholder='Select Category', name='itemCategory')
+              - categories.sort(function(a,b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textB < textA) ? 1 : 0 })
+              for category in categories
+                if iteminstance
+                  option(value=category._id selected=(selected_category==category._id.toString() ? 'selected' : false)) #{category.name}
+                else
+                  option(value=category._id) #{category.name}
+
+          div(class='field')
+            label Section
+            select(class='ui fluid dropdown', type='select', placeholder='Select Section', name='itemSection')
+              - sections.sort(function(a,b) { let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textB < textA) ? 1 : 0})
+              for section in sections
+                if iteminstance
+                  option(value=section._id selected=(selected_section==section._id.toString()? 'selected': false)) #{section.name}
+                else
+                  option(value=section._id) #{section.name}
+
+          div(class='field')
+            label Price
+            input(type='text', name='itemPrice' value=!(iteminstance == undefined)? iteminstance.price : '')
+            if errors
+              p #{errors.errors[2].msg}
+          div(class='field')
+            button(class='ui button') Submit
